@@ -68,18 +68,18 @@ If you want to use your own certificate, as a self-signed certificate (described
     openssl x509 -req -in deviceCert.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out deviceCert.pem -days 500 -sha256   
 
 9. In the "Existing certificates" list, choose the uploaded certificate and click "Next";
-10. Create a policy with the following permissions:
+10. Create a policy with the following permissions:    
 
-    {
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Effect": "Allow",
-          "Action": "iot:*",
-          "Resource": "*"
-        }
-      ]
-    }
+    {    
+      "Version": "2012-10-17",    
+      "Statement": [    
+        {    
+          "Effect": "Allow",   
+          "Action": "iot:*",   
+          "Resource": "*"    
+        }   
+      ]    
+    }  
 
 11. Select this policy and click the "Register Thing" button.
 
