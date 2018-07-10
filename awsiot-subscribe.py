@@ -4,8 +4,8 @@ from time import sleep
 
 mqtt_url = "aum2n475z1n7e.iot.us-east-2.amazonaws.com"
 root_ca = './certs/iotRootCA.pem'
-public_crt = './certs/deviceCert.crt'
-private_key = './certs/deviceCert.key'
+public_crt = './certs/devCert.pem'
+private_key = './certs/devCert.key'
 mqtt_port = 8883
 
 def on_connect(client, userdata, flags, response_code):
