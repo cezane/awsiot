@@ -33,27 +33,27 @@ If you want to use your own certificate, as a self-signed certificate (creation 
 2. You will see the next steps in order to generate a self-signed certificate and a CA for it:    
     2.1. Generate an RSA private key with the following command:    
 
-    openssl genrsa -out verificationCert.key 2048
+        openssl genrsa -out verificationCert.key 2048
 
     2.2. You have to copy the registration code showed in the "Step 2", in the page; 2.3. Create a Certificate Signing Request (CSR) with the copied registration code as the "Common Name":    
 
-    openssl req -new -key verificationCert.key -out verificationCert.csr
+        openssl req -new -key verificationCert.key -out verificationCert.csr
 
-    Country Name (2 letter code) [AU]:
-    State or Province Name (full name) [Some-State]:
-    Locality Name (eg, city) []:
-    Organization Name (eg, company) [Internet Widgits Pty Ltd]:
-    Organizational Unit Name (eg, section) []:
-    Common Name (e.g. server FQDN or YOUR name) []: "Registration Code Here!"
-    Email Address []:
+        Country Name (2 letter code) [AU]:
+        State or Province Name (full name) [Some-State]:
+        Locality Name (eg, city) []:
+        Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+        Organizational Unit Name (eg, section) []:
+        Common Name (e.g. server FQDN or YOUR name) []: "Registration Code Here!"
+        Email Address []:
 
     2.3. Create a CA certificate:    
 
-    openssl req -x509 -new -nodes -key verificationCert.key -sha256 -days 365 -out rootCA.pem
+        openssl req -x509 -new -nodes -key verificationCert.key -sha256 -days 365 -out rootCA.pem
 
     2.4. Create a verification certificate using the CSR that was signed with the CA private key:
 
-    openssl x509 -req -in verificationCert.csr -CA rootCA.pem -CAkey verificationCert.key -CAcreateserial -out verificationCert.crt -days 365 -sha256
+        openssl x509 -req -in verificationCert.csr -CA rootCA.pem -CAkey verificationCert.key -CAcreateserial -out verificationCert.crt -days 365 -sha256
 
 3. Upload your CA certificate (rootCA.pem) in the "Select CA certificate" button;
 4. Upload your verification certificate (verificationCert.crt) in the "Select verification certificate" button.
