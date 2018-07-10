@@ -70,19 +70,19 @@ If you want to use your own certificate, as a self-signed certificate (described
 9. In the "Existing certificates" list, choose the uploaded certificate and click "Next";
 10. Create a policy with the following permissions:    
 
-       {    
-         "Version": "2012-10-17",    
-         "Statement": [    
-           {    
-             "Effect": "Allow",   
-             "Action": "iot:*",   
-             "Resource": "*"    
-           }   
-         ]    
-       }  
+        {    
+          "Version": "2012-10-17",    
+          "Statement": [    
+            {    
+              "Effect": "Allow",   
+              "Action": "iot:*",   
+              "Resource": "*"    
+            }   
+          ]    
+        }  
 
 11. Select this policy and click the "Register Thing" button.
 
 Once your thing (device) is registered and associated to a certificate with policies, you have to get the Verisign root CA Server in order to authenticate connections to AWS IoT:
 
-       curl https://www.symantec.com/content/en/us/enterprise/verisign/roots/VeriSign-Class%203-Public-Primary-Certification-Authority-G5.pem > iotRootCA.pem
+    curl https://www.symantec.com/content/en/us/enterprise/verisign/roots/VeriSign-Class%203-Public-Primary-Certification-Authority-G5.pem > iotRootCA.pem
